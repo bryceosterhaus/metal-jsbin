@@ -1,0 +1,17 @@
+{
+  "name": "metal-jsbin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/bundle.js",
+  "scripts": {
+    "compile": "browserify JSXTransform.js > build/metalJSXTransform.js && browserify JSXComponent.js > build/metalJSXComponent.js"
+  },
+  "author": "Bryce Osterhaus",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-plugin-incremental-dom": "^3.4.0",
+    "babel-standalone": "^6.10.3",
+    "browserify": "^13.0.1",
+    "metal-jsx": "^1.0.3"
+  }
+}
