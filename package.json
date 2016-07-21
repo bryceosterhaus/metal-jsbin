@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Metal.js build for JSBin.com",
   "scripts": {
-    "compile": "browserify JSXTransform.js > build/metalJSXTransform.js && browserify JSXComponent.js > build/metalJSXComponent.js"
+    "compile": "browserify JSXTransform.js --standalone metalJSXTransform --outfile build/metalJSXTransform.js && browserify JSXComponent.js > build/metalJSXComponent.js"
   },
   "author": "Bryce Osterhaus",
   "license": "MIT",

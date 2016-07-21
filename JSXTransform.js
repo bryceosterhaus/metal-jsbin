@@ -1,11 +1,7 @@
-var Babel = require('babel-standalone');
 var IncreDom = require('babel-plugin-incremental-dom').default;
+var Babel = require('babel-standalone');
 
-if (!window.metal) {
-	window.metal = {};
-}
-
-window.metal.JSXTransform = function metalJSXTransform(input) {
+module.exports = function metalJSXTransform(input) {
     return Babel.transform(
       input,
       {
