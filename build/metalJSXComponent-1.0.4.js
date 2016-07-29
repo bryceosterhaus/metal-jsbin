@@ -77,7 +77,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
  *
  * @extends {State}
  */
-
 var Component = function (_State) {
 	_inherits(Component, _State);
 
@@ -91,7 +90,6 @@ var Component = function (_State) {
   *     after created.
   * @constructor
   */
-
 	function Component(opt_config, opt_parentElement) {
 		_classCallCheck(this, Component);
 
@@ -101,7 +99,6 @@ var Component = function (_State) {
    * @type {!Object<string, bool>}
    * @protected
    */
-
 		var _this = _possibleConstructorReturn(this, _State.call(this, opt_config));
 
 		_this.attachedListeners_ = {};
@@ -877,7 +874,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
  * be accessible by name.
  * @type {Object}
  */
-
 var ComponentRegistry = function () {
 	function ComponentRegistry() {
 		_classCallCheck(this, ComponentRegistry);
@@ -890,7 +886,6 @@ var ComponentRegistry = function () {
   * @return {?function}
   * @static
   */
-
 	ComponentRegistry.getConstructor = function getConstructor(name) {
 		var constructorFn = ComponentRegistry.components_[name];
 		if (!constructorFn) {
@@ -957,7 +952,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
  * Base class that component renderers should extend from. It defines the
  * required methods all renderers should have.
  */
-
 var ComponentRenderer = function (_EventEmitter) {
 	_inherits(ComponentRenderer, _EventEmitter);
 
@@ -966,7 +960,6 @@ var ComponentRenderer = function (_EventEmitter) {
   * @param {!Component} component The component that this renderer is
   *     responsible for.
   */
-
 	function ComponentRenderer(component) {
 		_classCallCheck(this, ComponentRenderer);
 
@@ -1168,7 +1161,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
  * (only the ones that receive a target element, not a selector string).
  * @extends {EventHandle}
  */
-
 var DomDelegatedEventHandle = function (_EventHandle) {
 	_inherits(DomDelegatedEventHandle, _EventHandle);
 
@@ -1181,7 +1173,6 @@ var DomDelegatedEventHandle = function (_EventHandle) {
   *     the event.
   * @constructor
   */
-
 	function DomDelegatedEventHandle(emitter, event, listener, opt_selector) {
 		_classCallCheck(this, DomDelegatedEventHandle);
 
@@ -1238,7 +1229,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
  * dom elements as origin emitters.
  * @extends {EventEmitterProxy}
  */
-
 var DomEventEmitterProxy = function (_EventEmitterProxy) {
 	_inherits(DomEventEmitterProxy, _EventEmitterProxy);
 
@@ -1256,7 +1246,6 @@ var DomEventEmitterProxy = function (_EventEmitterProxy) {
   * @protected
   * @override
   */
-
 	DomEventEmitterProxy.prototype.addListener_ = function addListener_(event, listener) {
 		if (this.originEmitter_.addEventListener) {
 			if (this.isDelegateEvent_(event)) {
@@ -1335,7 +1324,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
  * of EventEmitter events.
  * @extends {EventHandle}
  */
-
 var DomEventHandle = function (_EventHandle) {
 	_inherits(DomEventHandle, _EventHandle);
 
@@ -1348,7 +1336,6 @@ var DomEventHandle = function (_EventHandle) {
   *   during capture phase, instead of during the bubbling phase. Defaults to false.
   * @constructor
   */
-
 	function DomEventHandle(emitter, event, listener, opt_capture) {
 		_classCallCheck(this, DomEventHandle);
 
@@ -1464,7 +1451,6 @@ var dom = function () {
   * @param {!Element} element The element to add CSS classes to.
   * @param {string} classes CSS classes to add.
   */
-
 	dom.addClasses = function addClasses(element, classes) {
 		if (!_metal.core.isObject(element) || !_metal.core.isString(classes)) {
 			return;
@@ -2275,7 +2261,6 @@ var domData = function () {
   * @param {!Element} element
   * @return {!Object}
   */
-
 	domData.get = function get(element) {
 		if (!element[METAL_DATA]) {
 			element[METAL_DATA] = {
@@ -2360,7 +2345,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 /**
  * Class with static methods responsible for doing browser feature checks.
  */
-
 var features = function () {
 	function features() {
 		_classCallCheck(this, features);
@@ -2372,7 +2356,6 @@ var features = function () {
   * and transition.
   * @return {object}
   */
-
 	features.checkAnimationEventName = function checkAnimationEventName() {
 		if (features.animationEventName_ === undefined) {
 			features.animationEventName_ = {
@@ -2448,7 +2431,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 /**
  * Utility functions for running javascript code in the global scope.
  */
-
 var globalEval = function () {
 	function globalEval() {
 		_classCallCheck(this, globalEval);
@@ -2461,7 +2443,6 @@ var globalEval = function () {
   *   into document.
   * @return {Element} script
   */
-
 	globalEval.run = function run(text, opt_appendFn) {
 		var script = document.createElement('script');
 		script.text = text;
@@ -2597,7 +2578,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 /**
  * Utility functions for running styles.
  */
-
 var globalEvalStyles = function () {
 	function globalEvalStyles() {
 		_classCallCheck(this, globalEvalStyles);
@@ -2610,7 +2590,6 @@ var globalEvalStyles = function () {
   *   into document.
   * @return {Element} style
   */
-
 	globalEvalStyles.run = function run(text, opt_appendFn) {
 		var style = document.createElement('style');
 		style.innerHTML = text;
@@ -2735,7 +2714,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
  * @constructor
  * @extends {Disposable}
  */
-
 var EventEmitter = function (_Disposable) {
 	_inherits(EventEmitter, _Disposable);
 
@@ -2747,7 +2725,6 @@ var EventEmitter = function (_Disposable) {
    * @type {!Object<string, !Array<!function()>>}
    * @protected
    */
-
 		var _this = _possibleConstructorReturn(this, _Disposable.call(this));
 
 		_this.events_ = [];
@@ -3154,7 +3131,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
  * @constructor
  * @extends {Disposable}
  */
-
 var EventEmitterProxy = function (_Disposable) {
 	_inherits(EventEmitterProxy, _Disposable);
 
@@ -3166,7 +3142,6 @@ var EventEmitterProxy = function (_Disposable) {
    * @type {Object}
    * @protected
    */
-
 		var _this = _possibleConstructorReturn(this, _Disposable.call(this));
 
 		_this.blacklist_ = opt_blacklist || {};
@@ -3384,7 +3359,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
  * @constructor
  * @extends {Disposable}
  */
-
 var EventHandle = function (_Disposable) {
 	_inherits(EventHandle, _Disposable);
 
@@ -3396,7 +3370,6 @@ var EventHandle = function (_Disposable) {
    * @type {EventEmitter}
    * @protected
    */
-
 		var _this = _possibleConstructorReturn(this, _Disposable.call(this));
 
 		_this.emitter_ = emitter;
@@ -3465,7 +3438,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
  * @constructor
  * @extends {Disposable}
  */
-
 var EventHandler = function (_Disposable) {
 	_inherits(EventHandler, _Disposable);
 
@@ -3478,7 +3450,6 @@ var EventHandler = function (_Disposable) {
    * @type {Array.<EventHandle>}
    * @protected
    */
-
 		var _this = _possibleConstructorReturn(this, _Disposable.call(this));
 
 		_this.eventHandles_ = [];
@@ -3572,7 +3543,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 /**
  * Class responsible for intercepting incremental dom functions through AOP.
  */
-
 var IncrementalDomAop = function () {
 	function IncrementalDomAop() {
 		_classCallCheck(this, IncrementalDomAop);
@@ -3582,7 +3552,6 @@ var IncrementalDomAop = function () {
   * Gets the original functions that are intercepted by `IncrementalDomAop`.
   * @return {!Object}
   */
-
 	IncrementalDomAop.getOriginalFns = function getOriginalFns() {
 		return fnStack[0];
 	};
@@ -3722,14 +3691,12 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 /**
  * Class responsible for rendering components via incremental dom.
  */
-
 var IncrementalDomRenderer = function (_ComponentRenderer) {
 	_inherits(IncrementalDomRenderer, _ComponentRenderer);
 
 	/**
   * @inheritDoc
   */
-
 	function IncrementalDomRenderer(comp) {
 		_classCallCheck(this, IncrementalDomRenderer);
 
@@ -4529,7 +4496,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
  * as well as actually rendering those captured children via incremental dom
  * later.
  */
-
 var IncrementalDomChildren = function () {
 	function IncrementalDomChildren() {
 		_classCallCheck(this, IncrementalDomChildren);
@@ -4542,7 +4508,6 @@ var IncrementalDomChildren = function () {
   * @param {!function} callback Function to be called when children have all
   *     been captured.
  	 */
-
 	IncrementalDomChildren.capture = function capture(renderer, callback) {
 		renderer_ = renderer;
 		callback_ = callback;
@@ -4714,7 +4679,6 @@ var IncrementalDomUnusedComponents = function () {
   * Disposes all sub components that were not rerendered since the last
   * time this function was scheduled.
   */
-
 	IncrementalDomUnusedComponents.disposeUnused = function disposeUnused() {
 		for (var i = 0; i < comps_.length; i++) {
 			if (!comps_[i].isDisposed()) {
@@ -6000,7 +5964,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 /**
  * Utility functions used to handle incremental dom calls.
  */
-
 var IncrementalDomUtils = function () {
 	function IncrementalDomUtils() {
 		_classCallCheck(this, IncrementalDomUtils);
@@ -6012,7 +5975,6 @@ var IncrementalDomUtils = function () {
   * @param {!Array} args
   * @return {!Object}
   */
-
 	IncrementalDomUtils.buildConfigFromCall = function buildConfigFromCall(args) {
 		var config = {};
 		if (args[1]) {
@@ -6097,7 +6059,6 @@ var JSXComponent = function (_Component) {
   * Overrides the original method to create a JSX renderer.
   * @return {!JSX}
   */
-
 	JSXComponent.prototype.createRenderer = function createRenderer() {
 		return new JSXRenderer(this);
 	};
@@ -6158,7 +6119,6 @@ var JSXRenderer = function (_IncrementalDomRender) {
   * function.
   * @override
   */
-
 	JSXRenderer.prototype.renderIncDom = function renderIncDom() {
 		if (this.component_.render) {
 			iDOMHelpers.renderArbitrary(this.component_.render());
@@ -6259,7 +6219,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
  * @constructor
  * @extends {EventEmitter}
  */
-
 var State = function (_EventEmitter) {
 	_inherits(State, _EventEmitter);
 
@@ -6272,7 +6231,6 @@ var State = function (_EventEmitter) {
    * @type {Object}
    * @protected
    */
-
 		var _this = _possibleConstructorReturn(this, _EventEmitter.call(this));
 
 		_this.scheduledBatchData_ = null;
@@ -6929,7 +6887,6 @@ var array = function () {
   * @param {!Array<*>} arr2
   * @return {boolean}
   */
-
 	array.equal = function equal(arr1, arr2) {
 		if (arr1.length !== arr2.length) {
 			return false;
@@ -7302,7 +7259,6 @@ var core = function () {
   * @type {!Function}
   * @throws {Error} when invoked to indicate the method should be overridden.
   */
-
 	core.abstractMethod = function abstractMethod() {
 		throw Error('Unimplemented abstract method');
 	};
@@ -7694,7 +7650,6 @@ var object = function () {
   * @param {...Object} var_args The objects from which values will be copied.
   * @return {Object} Returns the target object reference.
   */
-
 	object.mixin = function mixin(target) {
 		var key, source;
 		for (var i = 1; i < arguments.length; i++) {
@@ -7792,7 +7747,6 @@ var string = function () {
   * @param {string} str A string in which to collapse spaces.
   * @return {string} Copy of the string with normalized breaking spaces.
   */
-
 	string.collapseBreakingSpaces = function collapseBreakingSpaces(str) {
 		return str.replace(/[\t\r\n ]+/g, ' ').replace(/^[\t\r\n ]+|[\t\r\n ]+$/g, '');
 	};
